@@ -19,8 +19,132 @@ med = tuple(range(11, 51))
 hi = tuple(range(51, 101))
 
 def game(oper, lvl):
-    a = 0
-    b = 0
+    a = 0.0
+    b = 0.0
+    ans = 0.0
+    inp = 0.0
     if level == "l" or level == "1":
-    a = r.choice(low)
-    b = r.choice(low)
+        if oper == "a" or oper == "1":
+            for i in range(2):
+                a = r.choice(low)
+                b = r.choice(low)
+                ans = a + b
+                inp = float(input(f"What is {a} plus {b}?: "))
+                if inp == ans:
+                    print("Correct")
+                else:
+                    print(f"Incorrect. The correct answer is {ans}.")
+        elif oper == "s" or oper == "2":
+            for i in range(2):
+                a = r.choice(low)
+                b = r.choice(low)
+                ans = a - b
+                inp = float(input(f"What is {a} minus {b}?: "))
+                if inp == ans:
+                    print("Correct")
+                else:
+                    print(f"Incorrect. The correct wer is {ans}.")
+        elif oper == "m" or oper == "3":
+            for i in range(2):
+                a = r.choice(low)
+                b = r.choice(low)
+                ans = a * b
+                inp = float(input(f"What is {a} times {b}?: "))
+                if inp == ans:
+                    print("Correct")
+                else:
+                    print(f"Incorrect. The correct answer is {ans}.")
+        elif oper == "d" or oper == "4":
+            for i in range(2):
+                a = r.choice(low)
+                b = r.choice(low)
+                ans = a / b
+                inp = float(input(f"What is {a} divided by {b}?: "))
+                if inp == ans:
+                    print("Correct")
+                else:
+                    print(f"Incorrect. The correct answer is {ans}.")
+    elif level == "m" or level == "2":
+        if oper == "a" or oper == "1":
+            for i in range(2):
+                a = r.choice(med)
+                b = r.choice(med)
+                ans = a + b
+                inp = float(input(f"What is {a} plus {b}?: "))
+                if inp == ans:
+                    print("Correct")
+                else:
+                    print(f"Incorrect. The correct answer is {ans}.")
+        elif oper == "s" or oper == "2":
+            for i in range(2):
+                a = r.choice(med)
+                b = r.choice(med)
+                ans = a - b
+                inp = float(input(f"What is {a} minus {b}?: "))
+                if inp == ans:
+                    print("Correct")
+                else:
+                    print(f"Incorrect. The correct answer is {ans}.")
+        elif oper == "m" or oper == "3":
+            for i in range(2):
+                a = r.choice(med)
+                b = r.choice(med)
+                ans = a * b
+                inp = float(input(f"What is {a} times {b}?: "))
+                if inp == ans:
+                    print("Correct")
+                else:
+                    print(f"Incorrect. The correct answer is {ans}.")
+        elif oper == "d" or oper == "4":
+            for i in range(2):
+                a = r.choice(med)
+                b = r.choice(med)
+                ans = a / b
+                inp = float(input(f"What is {a} divided by {b}?: "))
+                if inp == ans:
+                    print("Correct")
+                else:
+                    print(f"Incorrect. The correct answer is {ans}.")
+    elif level == "h" or level == "3":
+        if oper == "a" or oper == "1":
+            for i in range(2):
+                a = r.choice(hi)
+                b = r.choice(hi)
+                ans = a + b
+                inp = float(input(f"What is {a} plus {b}?: "))
+                if inp == ans:
+                    print("Correct")
+                else:
+                    print(f"Incorrect. The correct answer is {ans}.")
+        elif oper == "s" or oper == "2":
+            for i in range(2):
+                a = r.choice(hi)
+                b = r.choice(hi)
+                ans = a - b
+                inp = float(input(f"What is {a} minus {b}?: "))
+                if inp == ans:
+                    print("Correct")
+                else:
+                    print(f"Incorrect. The correct answer is {ans}.")
+        elif oper == "m" or oper == "3":
+            for i in range(2):
+                a = r.choice(hi)
+                b = r.choice(hi)
+                ans = a * b
+                inp = float(input(f"What is {a} times {b}?: "))
+                if inp == ans:
+                    print("Correct")
+                else:
+                    print(f"Incorrect. The correct answer is {ans}.")
+        elif oper == "d" or oper == "4":
+            for i in range(2):
+                a = r.choice(hi)
+                b = r.choice(hi)
+                ans = a / b
+                inp = float(input(f"What is {a} divided by {b}?: "))
+                if inp == ans:
+                    print("Correct")
+                else:
+                    print(f"Incorrect. The correct answer is {ans}.")
+
+game(operInp, level)
