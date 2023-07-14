@@ -10,3 +10,4 @@
 
 import calculatorGameBackend as calcbknd
 
+calcbknd.game()
