@@ -1,4 +1,5 @@
-import random; import random as r
+import random
+import random as r
 
 num1 = 0.0
 num2 = 0.0
@@ -60,9 +61,8 @@ def game():
                 else:
                     print(f"You ended with {points} points.")
         else:
-            end = (f"Incorrect. The correct answer was {rightans}. End game?(y/n): ").lower().strip()
+            end = input(f"Incorrect. The correct answer was {rightans}. End game?(y/n): ").lower().strip()
             if end == "y":
                 game()
             else:
                 print(f"You ended with {points} points.")
-
