@@ -5,6 +5,8 @@ num1 = 0.0
 num2 = 0.0
 ans = 0.0
 points = 0
+
+
 def number(lvl):
     global num1
     if lvl == "1" or lvl == "l":
@@ -13,6 +15,7 @@ def number(lvl):
         return r.randint(11, 50)
     elif lvl == "3" or lvl == "h":
         return r.randint(51, 100)
+
 
 def operate(oper, num1, num2):
     if oper == "a" or oper == "1":
@@ -24,6 +27,7 @@ def operate(oper, num1, num2):
     elif oper == "d" or oper == "4":
         return float(num1) / float(num2)
 
+
 contGame = True
 while contGame:
     oper = input(
@@ -34,12 +38,13 @@ while contGame:
     numbr2 = number(lvl)
     rightans = operate(oper, numbr1, numbr2)
 
-    operdict = {"a":"plus", "1":"plus", "s":"minus", "2":"minus", "m":"multiplied by", "3":"multiplied by", "d":"divided by", "4":"divided by"}
+    operdict = {"a": "plus", "1": "plus", "s": "minus", "2": "minus", "m": "multiplied by", "3": "multiplied by",
+                "d": "divided by", "4": "divided by"}
 
     ans = float(input(f"What is {numbr1} {operdict[lvl]} {numbr2}?: "))
     if ans == rightans:
         points += 1
-        #ask to continue new quesiton
+        # ask to continue new quesiton
         cont = input("Correct. Continue to next question? (y/n): ").lower().strip()
         if cont == "y":
             continue

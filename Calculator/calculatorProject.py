@@ -7,7 +7,6 @@
 # accepting input
 
 
-
 # defining addition, subtraction, etc
 def add(a, b):
     return a + b
