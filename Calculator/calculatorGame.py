@@ -52,7 +52,7 @@ while contGame:
             print(f"You ended with {points} points.")
             break
     else:
-        retry = input("Incorrect. Try again?(y/n): ").lower().strip()
+        retry = input("Incorrect. Try again? (y/n): ").lower().strip()
         if retry == "y":
             while retry == "y":
                 ans = float(input(f"What is {numbr1} {operdict[lvl]} {numbr2}?: "))
