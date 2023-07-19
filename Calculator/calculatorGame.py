@@ -46,24 +46,34 @@ while contGame:
         points += 1
         # ask to continue new quesiton
         cont = input("Correct. Continue to next question? (y/n): ").lower().strip()
+
         if cont == "y":
+            contGame = True
             continue
         else:
             print(f"You ended with {points} points.")
-            break
+            contGame = False
+            continue
     else:
-        retry = input("Incorrect. Try again? (y/n): ").lower().strip()
-        if retry == "y":
-            while retry == "y":
-                ans = float(input(f"What is {numbr1} {operdict[lvl]} {numbr2}?: "))
-                if ans == rightans:
-                    points += 1
-                    # ask to continue new quesiton
-                    cont = input("Correct. Continue to next question? (y/n): ").lower().strip()
-                    if cont == "y":
-                        continue
-                    else:
-                        print(f"You ended with {points} points.")
-                        break
+        retry = "y"
+        while retry == "y":
+            retry = input("Incorrect. Try again? (y/n): ").lower().strip()
+            ans = float(input(f"What is {numbr1} {operdict[lvl]} {numbr2}?: "))
+            if ans == rightans:
+                points += 1
+                # ask to continue new question
+                cont = input("Correct. Continue to next question? (y/n): ").lower().strip()
+
+                if cont == "y":
+                    contGame = True
+                    retry = "n"
+                    continue
+                else:
+                    print(f"You ended with {points} points.")
+                    contGame = False
+                    retry = "n"
+                    continue
+            else:
+                pass
     break
 print("Thank you for playing.\nGoodbye!")
