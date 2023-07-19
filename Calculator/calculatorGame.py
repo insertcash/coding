@@ -36,8 +36,7 @@ while contGame:
         "At what level would you like to practice?\n1. (L)ow (1-10)\n2. (M)edium (11-50)\n3. (H)igh (51-100)\ntype letter or number: ").lower().strip()
     numbr1 = number(lvl)
     numbr2 = number(lvl)
-    rightans = operate(oper, numbr1, numb
-    r2)
+    rightans = operate(oper, numbr1, numbr2)
 
     operdict = {"a": "plus", "1": "plus", "s": "minus", "2": "minus", "m": "multiplied by", "3": "multiplied by",
                 "d": "divided by", "4": "divided by"}
