@@ -1,6 +1,10 @@
 from passlib.hash import bcrypt
 from time import sleep
 
+# todo: create a dictionary to save and retrieve from the text file with student name as key and student id as value.
+# todo: take student id values as keys in dictionary and store student line number as value
+# todo: create dictionary studentid[course] to record grade per course
+
 # Create a grading system for BSC computer science. The program should be able to capture the names, admission number
 # and the student marks for the various course units they are taking. In addition to capturing the marks, the program
 # should be able to grade all the units using the school of computing grading system. The students' details,
@@ -46,20 +50,18 @@ if not correctuser or not correctpass:
 else:
     pass
 
-# todo: create a dictionary to save and retrieve from the text file with student name as key and student id as value.
-# todo: take student id values as keys in dictionary and store student line number as value
-
 # menu
 while cont:
     menuselect = str(input("Choose number or letter:\n1. (A)dd grades\n2. (C)hange grades\n3. (R)emove grades\n4. (E)xit").replace(" ", "").lower())
     if menuselect == "a" or menuselect == "1":
-        # ask for student name and id, add grade, save to file, ask to cont
+        # ask for student name and id, ask for course, add grade for course, save to file, ask to cont
         pass
     elif menuselect == "c" or menuselect == "2":
-        # ask for student name or id, find student (https://bit.ly/3Qfo0A9), edit grade, save to file, ask to cont
+        # ask for student name or id, ask for course, find student (https://bit.ly/3Qfo0A9), edit grade for course,
+        # save to file, ask to cont
         pass
     elif menuselect == "r" or menuselect == "3":
-        # ask for student name or id, remove grades, save to file, ask to cont
+        # ask for student name or id, ask for course, remove grades, save to file, ask to cont
         pass
     elif menuselect == "e" or menuselect == "4":
         sure = input("Are you sure? (y/n): ").replace(" ", "").lower()
