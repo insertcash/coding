@@ -51,11 +51,15 @@ else:
     pass
 
 # menu
+# note: noi stands for name or id
 while cont:
     menuselect = str(input("Choose number or letter:\n1. (A)dd grades\n2. (C)hange grades\n3. (R)emove grades\n4. (E)xit").replace(" ", "").lower())
     if menuselect == "a" or menuselect == "1":
         # ask for student name and id, ask for course, add grade for course, save to file, ask to cont
-        pass
+        noi = input("Search by student (n)ame or (i)d?: ").replace(" ", "").lower()
+        if noi == "y":
+            pass
+            # fixme
     elif menuselect == "c" or menuselect == "2":
         # ask for student name or id, ask for course, find student (https://bit.ly/3Qfo0A9), edit grade for course,
         # save to file, ask to cont
