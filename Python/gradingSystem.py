@@ -25,24 +25,48 @@ from time import sleep
 # verify
 # accept username
 user = "schooladmin"
-userinput = input("Username: ")
+userinput = input("Username: ").replace(" ", "")
 
 # pass input
-pswdinput = input("Password: ")
+passwordinput = input("Password: ").replace(" ", "")
 
 # hash
-hshr = bcrypt.using()
+hasher = bcrypt.using()
 
 # verify username and pass
 correctuser = user == userinput
-correctpass = hshr.verify(pswdinput, "$2b$12$nZ.MlsfIPNNyi/zvoLGBcuD017PhMTUNY7IRsu97uBzh6e2a3uEzO")
+correctpass = hasher.verify(passwordinput, "$2b$12$nZ.MlsfIPNNyi/zvoLGBcuD017PhMTUNY7IRsu97uBzh6e2a3uEzO")
 
 # quit if password is wrong
-if not correctuser and correctpass:
+if not correctuser or not correctpass:
+    # quit if password is wrong
     print("Sorry, incorrect username or password. This program will end in 10 seconds.")
     sleep(10)
     quit()
 else:
     pass
 
+# todo: create a dictionary to save and retrieve from the text file with student name as key and student id as value.
+# todo: take student id values as keys in dictionary and store student line number as value
+
 # menu
+while cont:
+    menuselect = str(input("Choose number or letter:\n1. (A)dd grades\n2. (C)hange grades\n3. (R)emove grades\n4. (E)xit").replace(" ", "").lower())
+    if menuselect == "a" or menuselect == "1":
+        # ask for student name and id, add grade, save to file, ask to cont
+        pass
+    elif menuselect == "c" or menuselect == "2":
+        # ask for student name or id, find student (https://bit.ly/3Qfo0A9), edit grade, save to file, ask to cont
+        pass
+    elif menuselect == "r" or menuselect == "3":
+        # ask for student name or id, remove grades, save to file, ask to cont
+        pass
+    elif menuselect == "e" or menuselect == "4":
+        sure = input("Are you sure? (y/n): ").replace(" ", "").lower()
+        if sure != "y":
+            pass
+        else:
+            cont = False
+print("Thank you. This program will close in 10 seconds.")
+sleep(10)
+quit()
