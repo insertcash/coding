@@ -50,16 +50,31 @@ if not correctuser or not correctpass:
 else:
     pass
 
+# dictionary of student names
+with open("grades.txt", "a+", encoding ="utf-8") as f:
+    f.seek(0)
+    studentdict = f.readline(len(f.readline()) - 2)
+    f.readline(2)
+    coursedict = f.readline(len(f.readline()) - 2)
+    f.readline(2)
+    gradedict = f.readline(len(f.readline()) - 2)
+
 # menu
 # note: noi stands for name or id
 while cont:
     menuselect = str(input("Choose number or letter:\n1. (A)dd grades\n2. (C)hange grades\n3. (R)emove grades\n4. (E)xit").replace(" ", "").lower())
     if menuselect == "a" or menuselect == "1":
         # ask for student name and id, ask for course, add grade for course, save to file, ask to cont
-        noi = input("Search by student (n)ame or (i)d?: ").replace(" ", "").lower()
-        if noi == "y":
-            pass
-            # fixme
+        name = input("Student name: ")
+        id = int(input("Student ID: "))
+        course = input("Student course: ")
+        grade = input("Student grade: ")
+
+        studentdict = studentdict | {name[id]}
+        coursedict = coursedict | {id[course]}
+        courseid = course + id
+        gradedict = gradedict | {courseid[grade]}
+
     elif menuselect == "c" or menuselect == "2":
         # ask for student name or id, ask for course, find student (https://bit.ly/3Qfo0A9), edit grade for course,
         # save to file, ask to cont
