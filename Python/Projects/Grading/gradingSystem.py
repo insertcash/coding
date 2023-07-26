@@ -50,25 +50,24 @@ else:
     pass
 
 # menu
-# note: noi stands for name or id. ic stands for id and course
+# note: noi stands for name or iden. ic stands for iden and course
+cont = True
 while cont:
     menuselect = str(input("Choose number or letter:\n1. (A)dd grades\n2. (C)hange grades\n3. (R)emove grades\n4. (E)xit").replace(" ", "").lower())
     if menuselect == "a" or menuselect == "1":
         # ask for student name and id, ask for course, add grade for course, save to file, ask to cont
         name = input("Student name: ")
-        id = input("Student ID: ")
+        iden = input("Student ID: ")
         course = input("Student course: ")
         grade = input("Student grade: ")
 
-        ic = id + "," + course
+        ic = iden + "," + course
 
-
-        with open("grades.txt", "a+", encoding ="utf-8") as f:
-            f.write(f"{name},{id},{course},{grade}\n")
+        with open("grades.txt", "a+", encoding = "utf-8") as f:
+            f.write(f"{name},{iden},{course},{grade}\n")
             f.seek(0)
             line = f.readline()
             f.write("{" + line + "," + str(ic[grade]) + "}")
-
 
     elif menuselect == "c" or menuselect == "2":
         # ask for student name or id, ask for course, find student (https://bit.ly/3Qfo0A9), edit grade for course,
