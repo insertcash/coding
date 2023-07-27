@@ -1,8 +1,8 @@
 from passlib.hash import bcrypt
 from time import sleep
 
-# todo: create a dictionary to save and retrieve from the text file with student name as key and student id as value.
-# todo: take student id values as keys in dictionary and store student line number as value
+# todo: create a dictionary to save and retrieve from the text file with student name as key and student admission num as value.
+# todo: take student admnum values as keys in dictionary and store student line number as value
 
 # Create a grading system for BSC computer science. The program should be able to capture the names, admission number
 # and the student marks for the various course units they are taking. In addition to capturing the marks, the program
@@ -50,31 +50,31 @@ else:
     pass
 
 # menu
-# note: noi stands for name or iden. ic stands for iden and course
+# note: noa stands for name or admnum. ac stands for admnum and course
 cont = True
 while cont:
     menuselect = str(input("Choose number or letter:\n1. (A)dd grades\n2. (C)hange grades\n3. (R)emove grades\n4. (E)xit").replace(" ", "").lower())
     if menuselect == "a" or menuselect == "1":
-        # ask for student name and id, ask for course, add grade for course, save to file, ask to cont
+        # ask for student name and admnum, ask for course, add grade for course, save to file, ask to cont
         name = input("Student name: ")
-        iden = input("Student ID: ")
+        admnum = input("Student admission number: ")
         course = input("Student course: ")
         grade = input("Student grade: ")
 
-        ic = iden + "," + course
+        ac = admnum + "," + course
 
         with open("grades.txt", "a+", encoding = "utf-8") as f:
-            f.write(f"{name},{iden},{course},{grade}\n")
+            f.write(f"{name},{admnum},{course},{grade}\n")
             f.seek(0)
             line = f.readline()
-            f.write("{" + line + "," + str(ic[grade]) + "}")
+            f.write("{" + line + "," + str(ac[grade]) + "}")
 
     elif menuselect == "c" or menuselect == "2":
-        # ask for student name or id, ask for course, find student (https://bit.ly/3Qfo0A9), edit grade for course,
+        # ask for student name or admnum, ask for course, find student (https://bit.ly/3Qfo0A9), edit grade for course,
         # save to file, ask to cont
         pass
     elif menuselect == "r" or menuselect == "3":
-        # ask for student name or id, ask for course, remove grades, save to file, ask to cont
+        # ask for student name or admnum, ask for course, remove grades, save to file, ask to cont
         pass
     elif menuselect == "e" or menuselect == "4":
         sure = input("Are you sure? (y/n): ").replace(" ", "").lower()
