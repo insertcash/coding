@@ -53,7 +53,7 @@ else:
 # note: noa stands for name or admnum. ac stands for admnum and course
 cont = True
 while cont:
-    menuselect = str(input("Choose number or letter:\n1. (A)dd grades\n2. (C)hange grades\n3. (R)emove grades\n4. (E)xit").replace(" ", "").lower())
+    menuselect = str(input("Choose number or letter:\n1. (A)dd grades\n2. (C)hange grades\n3. (R)emove grades\n4. (V)iew grades\n5. (E)xit").replace(" ", "").lower())
     if menuselect == "a" or menuselect == "1":
         # ask for student name and admnum, ask for course, add grade for course, save to file, ask to cont
         name = input("Student name: ")
@@ -64,10 +64,9 @@ while cont:
         ac = admnum + "," + course
 
         with open("grades.txt", "a+", encoding = "utf-8") as f:
-            f.write(f"{name},{admnum},{course},{grade}\n")
-            f.seek(0)
-            line = f.readline()
-            f.write("{" + line + "," + str(ac[grade]) + "}")
+            loc = f.tell()
+            f.write(name + "," + ac + "," + grade + "\n")
+
 
     elif menuselect == "c" or menuselect == "2":
         # ask for student name or admnum, ask for course, find student (https://bit.ly/3Qfo0A9), edit grade for course,
@@ -76,7 +75,9 @@ while cont:
     elif menuselect == "r" or menuselect == "3":
         # ask for student name or admnum, ask for course, remove grades, save to file, ask to cont
         pass
-    elif menuselect == "e" or menuselect == "4":
+    elif menuselect == "v" or menuselect == "4":
+        # ask for loc, find place, return data
+    elif menuselect == "e" or menuselect == "5":
         sure = input("Are you sure? (y/n): ").replace(" ", "").lower()
         if sure != "y":
             pass
