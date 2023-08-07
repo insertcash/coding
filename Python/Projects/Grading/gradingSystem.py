@@ -1,8 +1,8 @@
 from passlib.hash import bcrypt
 from time import sleep
+import random as r
 
-# todo: create a dictionary to save and retrieve from the text file with student name as key and student admission num as value.
-# todo: take student admnum values as keys in dictionary and store student line number as value
+# todo: REMEMBER TO CHANGE GRADE FROM PERCENT TO LETTER SYSTEM
 
 # Create a grading system for BSC computer science. The program should be able to capture the names, admission number
 # and the student marks for the various course units they are taking. In addition to capturing the marks, the program
@@ -50,12 +50,16 @@ else:
     pass
 
 # menu
-# note: noa stands for name or admnum. ac stands for admnum and course
+# todo: REMEMBER TO CHANGE GRADE FROM PERCENT TO LETTER SYSTEM
+
 cont = True
 while cont:
-    menuselect = str(input("Choose number or letter:\n1. (A)dd grades\n2. (C)hange grades\n3. (R)emove grades\n4. (V)iew grades\n5. (E)xit").replace(" ", "").lower())
+
+    menuselect = str(input("Choose number or letter:\n1. (A)dd grades\n2. (C)hange grades\n3. (V)iew grades\n5. (E)xit\n").replace(" ", "").lower())
     if menuselect == "a" or menuselect == "1":
-        # ask for student name and admnum, ask for course, add grade for course, save to file, ask to cont
+        # ask for student name and admnum, ask for course, add grade for course, convert grade to letter, anchor grade, save to file
+
+        # general input
         name = input("Student name: ")
         admnum = input("Student admission number: ")
         course = input("Student course: ")
@@ -63,21 +67,48 @@ while cont:
 
         ac = admnum + "," + course
 
+        # saving grade
         with open("grades.txt", "a+", encoding = "utf-8") as f:
-            loc = f.tell()
-            f.write(name + "," + ac + "," + grade + "\n")
-
+            anchr = r.randint(1, 1000000)
+            f.write(name + "," + ac + "," + grade + "," + str(anchr) + "\n")
+            print(f"Student grade saved with label {anchr} Using the label will be the only way to retrieve the grade.")
 
     elif menuselect == "c" or menuselect == "2":
-        # ask for student name or admnum, ask for course, find student (https://bit.ly/3Qfo0A9), edit grade for course,
-        # save to file, ask to cont
-        pass
+        # ask for student grade anchr, edit grade/course/student name, etc., save to file
+        anchr = input("Student grade label: ")
+
+        # finding grade by anchr
+        with open("grades.txt", "r") as f:
+            for line in f:
+                if str(anchr) in line:
+                    print("Grade data found.")
+
+        # refractor and print data
+        data = line.split(",")
+        print(
+            f"Student name: {data[0]}\nStudent admission number: {data[1]}\nStudent course: {data[2]}\nStudent grade: {data[3]}\nStudent grade label: {data[4]}\n")
+
     elif menuselect == "r" or menuselect == "3":
-        # ask for student name or admnum, ask for course, remove grades, save to file, ask to cont
+        # ask for anchr, remove grades, save to file
         pass
     elif menuselect == "v" or menuselect == "4":
-        # ask for loc, find place, return data
+        # ask for anchr, find place, return data
+        anchr = input("Student grade label: ")
+
+        # finding grade by anchr
+        with open("grades.txt", "r") as f:
+            for line in f:
+                if str(anchr) in line:
+                    print("Grade data found.")
+
+        # refractor and print data
+        data = line.split(",")
+        print(
+            f"Student name: {data[0]}\nStudent admission number: {data[1]}\nStudent course: {data[2]}\nStudent grade: {data[3]}\nStudent grade label: {data[4]}\n")
+
     elif menuselect == "e" or menuselect == "5":
+        # exit program
+        # ask for confirmation
         sure = input("Are you sure? (y/n): ").replace(" ", "").lower()
         if sure != "y":
             pass
