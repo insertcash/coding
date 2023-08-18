@@ -2,8 +2,6 @@ from passlib.hash import bcrypt
 from time import sleep
 import random as r
 
-# todo: REMEMBER TO CHANGE GRADE FROM PERCENT TO LETTER SYSTEM
-
 # Create a grading system for BSC computer science. The program should be able to capture the names, admission number
 # and the student marks for the various course units they are taking. In addition to capturing the marks, the program
 # should be able to grade all the units using the school of computing grading system. The students' details,
@@ -50,12 +48,11 @@ else:
     pass
 
 # menu
-# todo: REMEMBER TO CHANGE GRADE FROM PERCENT TO LETTER SYSTEM
 
 cont = True
 while cont:
 
-    menuselect = str(input("Choose number or letter:\n1. (A)dd grades\n2. (C)hange grades\n3. (V)iew grades\n5. (E)xit\n").replace(" ", "").lower())
+    menuselect = str(input("Choose number or letter:\n1. (A)dd grades\n2. (C)hange grades\n3. (R)emove grades\n4. (V)iew grades\n5. (E)xit\n").replace(" ", "").lower())
     if menuselect == "a" or menuselect == "1":
         # ask for student name and admnum, ask for course, add grade for course, convert grade to letter, anchor grade, save to file
 
@@ -85,12 +82,62 @@ while cont:
 
         # refractor and print data
         data = line.split(",")
+        # convert grade to letter
+        if int(data[3]) >= 90:
+            if int(data[3]) >= 97:
+                ltrgrd = "A+"
+            elif int(data[3]) >= 93:
+                ltrgrd = "A"
+            else:
+                ltrgrd = "A-"
+        elif int(data[3]) >= 80:
+            if int(data[3]) >= 87:
+                ltrgrd = "B+"
+            elif int(data[3]) >= 83:
+                ltrgrd = "B"
+            else:
+                ltrgrd = "B-"
+        elif int(data[3]) >= 70:
+            if int(data[3]) >= 77:
+                ltrgrd = "C+"
+            elif int(data[3]) >= 73:
+                ltrgrd = "C"
+            else:
+                ltrgrd = "C-"
+        elif int(data[3]) >= 60:
+            if int(data[3]) >= 67:
+                ltrgrd = "D+"
+            elif int(data[3]) >= 63:
+                ltrgrd = "D"
+            else:
+                ltrgrd = "D-"
+        else:
+            ltrgrd = "F"
         print(
-            f"Student name: {data[0]}\nStudent admission number: {data[1]}\nStudent course: {data[2]}\nStudent grade: {data[3]}\nStudent grade label: {data[4]}\n")
+            f"Student name: {data[0]}\nStudent admission number: {data[1]}\nStudent course: {data[2]}\nStudent grade: {data[3]}\nStudent letter grade: {ltrgrd}\nStudent grade label: {data[4]}\n")
+        chngdatatrue = input("Do you want to change the grade? (y/n): ").replace(" ", "").lower()
+        if chngdatatrue == "y":
+            chngdata = input("New grade: ").replace(" ", "")
+            data[3] = chngdata
+        else:
+            pass
 
     elif menuselect == "r" or menuselect == "3":
         # ask for anchr, remove grades, save to file
-        pass
+        anchr = input("Student grade label: ")
+
+        # finding grade by anchr
+        with open("grades.txt", "r") as f:
+            for line in f:
+                if str(anchr) in line:
+                    print("Grade data found.")
+                    currentline = f.tell()
+                    linelen = len(line)
+        with open("grades.txt", "w") as f:
+            f.seek(currentline)
+            overwrite = "-" * (linelen - 2)
+            f.write(overwrite)
+
     elif menuselect == "v" or menuselect == "4":
         # ask for anchr, find place, return data
         anchr = input("Student grade label: ")
@@ -101,10 +148,41 @@ while cont:
                 if str(anchr) in line:
                     print("Grade data found.")
 
-        # refractor and print data
-        data = line.split(",")
-        print(
-            f"Student name: {data[0]}\nStudent admission number: {data[1]}\nStudent course: {data[2]}\nStudent grade: {data[3]}\nStudent grade label: {data[4]}\n")
+                # refractor and print data
+                data = line.split(",")
+                # convert grade to letter
+                if int(data[3]) >= 90:
+                    if int(data[3]) >= 97:
+                        ltrgrd = "A+"
+                    elif int(data[3]) >= 93:
+                        ltrgrd = "A"
+                    else:
+                        ltrgrd = "A-"
+                elif int(data[3]) >= 80:
+                    if int(data[3]) >= 87:
+                        ltrgrd = "B+"
+                    elif int(data[3]) >= 83:
+                        ltrgrd = "B"
+                    else:
+                        ltrgrd = "B-"
+                elif int(data[3]) >= 70:
+                    if int(data[3]) >= 77:
+                        ltrgrd = "C+"
+                    elif int(data[3]) >= 73:
+                        ltrgrd = "C"
+                    else:
+                        ltrgrd = "C-"
+                elif int(data[3]) >= 60:
+                    if int(data[3]) >= 67:
+                        ltrgrd = "D+"
+                    elif int(data[3]) >= 63:
+                        ltrgrd = "D"
+                    else:
+                        ltrgrd = "D-"
+                else:
+                    ltrgrd = "F"
+                print(
+                    f"Student name: {data[0]}\nStudent admission number: {data[1]}\nStudent course: {data[2]}\nStudent grade: {data[3]}\nStudent letter grade: {ltrgrd}\nStudent grade label: {data[4]}\n")
 
     elif menuselect == "e" or menuselect == "5":
         # exit program
