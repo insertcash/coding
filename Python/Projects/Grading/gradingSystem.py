@@ -68,7 +68,7 @@ while cont:
         with open("grades.txt", "a+", encoding = "utf-8") as f:
             anchr = r.randint(1, 1000000)
             f.write(name + "," + ac + "," + grade + "," + str(anchr) + "\n")
-            print(f"Student grade saved with label {anchr} Using the label will be the only way to retrieve the grade.")
+            print(f"Student grade saved with label {anchr}. Using the label will be the only way to retrieve the grade.")
 
     elif menuselect == "c" or menuselect == "2":
         # ask for student grade anchr, edit grade/course/student name, etc., save to file
