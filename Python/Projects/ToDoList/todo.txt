@@ -1,0 +1,5 @@
+walk the dog`2
+eat carrots`4
+plantatree`3
+hanguppainting`2
+cheese`1
