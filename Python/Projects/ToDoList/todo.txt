@@ -1,5 +1,5 @@
 walk the dog`2
 eat carrots`4
-plantatree`3
-hanguppainting`2
+plant a tree`3
 cheese`1
+code a to do list :)`1

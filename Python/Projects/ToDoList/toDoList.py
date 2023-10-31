@@ -18,6 +18,7 @@ while run:
         todo = f.readlines()
 
     # display list
+    print("List of items:")
     count = 0
     for i in todo:
         # reads and splits the item on the to do list. then, prints the item, and ups the count.
@@ -33,17 +34,38 @@ while run:
 
     menu = usrinput("Options:\n1. Add item\n2. Complete item\n3. Edit item\n4. Exit\nSelect by number: ", "int")
     if menu == 1:
+        # get info about item
         thing = usrinput("Item: ", "str")
         urgency = usrinput("Urgency (type 1-5): ", "str")
         saved = "`".join([thing, urgency])
+        # save item to file
         todo.append(saved + "\n")
         with open("todo.txt", "w") as f:
             f.truncate(0)
             f.writelines(todo)
+        print("Item was saved successfully.")
+
     elif menu == 2:
-        pass
+        # get item to remove
+        num = usrinput("Complete item by number in list: ", "int") - 1
+        del todo[num]
+        # save file
+        with open("todo.txt", "w") as f:
+            f.truncate(0)
+            f.writelines(todo)
+        print("Item was completed successfully.")
+
     elif menu == 3:
-        pass
+        # get info about item
+        num = usrinput("Item to change in list: ", "int") - 1
+        thing = usrinput("Item: ", "str")
+        urgency = usrinput("Urgency (type 1-5): ", "str")
+        changed = "`".join([thing, urgency])
+        # save item to file
+        todo[num] = changed + "\n"
+        with open("todo.txt", "w") as f:
+            f.truncate(0)
+            f.writelines(todo)
     elif menu == 4:
         print("Exiting...")
         run = False
