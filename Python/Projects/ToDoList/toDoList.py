@@ -1,13 +1,13 @@
 # to do list
 
 # functions
-def usrinput(usrinput, type):
+def usrinput(displayedtext, itemtype):
     """Supports strings and intergers. If string is selected, places input into str(input(usrinput)), while stripping
      whitespaces and lowercasing letters. If integer is selected, returns int(input(usrinput))."""
-    if type == "str":
-        return str(input(usrinput)).strip().lower()
-    elif type == "int":
-        return int(input(usrinput))
+    if itemtype == "str":
+        return str(input(displayedtext)).strip().lower()
+    elif itemtype == "int":
+        return int(input(displayedtext))
 
 
 # mainloop
@@ -69,4 +69,3 @@ while run:
     elif menu == 4:
         print("Exiting...")
         run = False
-
