@@ -1,0 +1,20 @@
+body {
+  text-align: center;
+  background-color: #2B2D42;
+}
+body h1 {
+  color: #EF233C;
+}
+body p {
+  color: #D90429;
+}
+body a {
+  text-decoration: none;
+}
+body a:link {
+  color: #EDF2F4;
+}
+body a:visited {
+  color: #8D99AE;
+}
+/*# sourceMappingURL=style.css.map */
