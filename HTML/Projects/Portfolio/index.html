@@ -4,18 +4,44 @@
     <meta charset="UTF-8">
     <title>Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <script src="scripts/nutshell.js"></script>
+    <script>Nutshell.setOptions({startOnLoad: true, lang: 'en', dontEmbedHeadings: true});</script>
 </head>
 <body>
-<div class="header">
-    <p>header stuff here</p>
-</div>
-<div class="items">
-    <div class="items-top">
+<h1>Portfolio</h1>
+<p>Hi, I'm Daniel Akama. This is my portfolio, along with a list of achievements I've completed. Click to unwrap the sections.</p>
+<!-- the header must be below the nutshell or the nutshell must be in a different header, or it might cause recursion, or dissapear an invisible header. --->
+<a href="#achievements">:Achievements</a>
+<br>
+<a href="#upcoming">:Upcoming Plans</a>
+<br>
+<a href="#howto">:How does this page code work?</a>
 
-    </div>
-    <div class="items-bottom">
+<h6 id="achievements">:x Achievements</h6>
+<ul>
+    <li>Started coding with <a href="https://en.wikipedia.org/wiki/Scratch_(programming_language)#">:Scratch,</a> <a href="https://scratch.mit.edu">link here,</a> a kid's coding website, from before I was 8</li>
+    <li>Became fluent in Python by the time I was 10.</li>
+    <li>Aferward, began learning HTML and building my first website, with considerably good CSS. (unfortunately, the files have been lost.)</li>
+</ul>
 
-    </div>
-</div>
+<h6 id="upcoming">:x Upcoming</h6>
+<ul>
+    <li>Learn Javascript, to complete my web development skills.</li>
+    <li>Learn C, C#, or C++, as they're great for job opportunities and gamedev.</li>
+    <li>Learn Go, as it's great for building apps.</li>
+</ul>
+
+<h6 id="howto">:x Howto</h6>
+<p><b>"How did you manage to make these interesting unwrapping links?"</b></p>
+<p>I didn't, of course. <a href="https://en.wikipedia.org/wiki/Ninety%E2%80%93ninety_rule#">:The ninety-ninety rule</a> states,</p>
+<blockquote>
+    The first 90 percent of the code accounts for the first 90 percent of the development time.
+    The remaining 10 percent of the code accounts for the other 90 percent of the development time.
+    -Tom Cargill, Bell Labs
+</blockquote>
+<p>Of course, 50% of development is on <a href="https://en.wikipedia.org/wiki/Stack_Overflow#">:Stack Overflow,</a> 60% stealing code, (from stack overflow or elsewhere,) 30% on <a href="https://en.wikipedia.org/wiki/GitHub#">:GitHub,</a> 40% staring at your IDE, and -20% getting your code to work first try.</p>
+<small>quote me on this</small>
+<br>
+<p>The neat links are called <a href="https://ncase.me/nutshell/">:nutshells,</a> which I'm currently "borrowing indefinitely." Note however that cross-site Nutshell sections rely on the fact that the other site has <a href="https://ncase.me/nutshell/#CORS">:CORS</a> enabled or Nutshell installed.</p>
 </body>
 </html>
