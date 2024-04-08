@@ -1,0 +1,20 @@
+body {
+  background-color: #E9FFF9;
+}
+* {
+  color: #1D3354;
+  font-size: 30px;
+}
+a:link {
+  color: #467599;
+}
+a:hover {
+  color: #9ED8DB;
+}
+a:visited {
+  color: #D64045;
+}
+h1 {
+  font-size: 45px;
+}
+/*# sourceMappingURL=style.css.map */
