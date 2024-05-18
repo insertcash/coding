@@ -1,14 +1,31 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en-US" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+
 <head>
-    <title>Title</title>
+    <title>Weather App</title>
     <link rel="icon" type="image/x-icon" href="imgs/favicon.ico">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
 </head>
 
 <body>
-<h1>Placeholder Site</h1>
+<div class="main-text">
+    <h1>Weather</h1>
+    <label for="loc-input">Enter one of the following: US Zipcode, UK Postcode, CA Postalcode, IP Address, or City Name</label>
+    <br>
+    <input id="loc-input" type="text">
+    <br>
+    <button id="submit" type="button">Get Weather</button>
+</div>
 
-<p>Blah blah blah</p>
+<div class="data">
+    <p id="loc-name"></p>
+    <p id="loc-region"></p>
+    <p id="loc-country"></p>
+    <p id="condition"></p>
+    <p id="condition-icon"></p>
+</div>
+
 </body>
+
 </html>
