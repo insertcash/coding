@@ -17,15 +17,10 @@ document.getElementById("loc-submit").addEventListener('click', function(){
 
 // quick log test
 console.log("log3");
-
-let ins_loc_name = data.location.name;
-let ins_loc_region = data.location.region;
-let ins_loc_country = data.location.country;
-let ins_condition = data.current.condition.text;
-let ins_condition_icon = data.current.condition.icon;
+let ins_loc_name = data.location.name
 
 // jargon that actually puts the data on the page (i need to fix this)
-document.getElementById("loc-name").innerHTML = data.location.name;
+document.getElementById("loc-name").innerHTML = ins_loc_name;
 document.getElementById("loc-region").innerHTML = data.location.region;
 document.getElementById("loc-country").innerHTML = data.location.country;
 document.getElementById("condition").innerHTML = data.current.condition.text;
